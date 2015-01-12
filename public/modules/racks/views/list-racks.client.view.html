@@ -1,0 +1,19 @@
+<section data-ng-controller="RacksController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Racks</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="rack in racks" data-ng-href="#!/racks/{{rack._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="rack.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="rack.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="rack.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!racks.$resolved || racks.length">
+    	No Racks yet, why don't you <a href="/#!/racks/create">create one</a>?
+    </div>
+</section>
